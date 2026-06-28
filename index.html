@@ -4,56 +4,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Salman Kazi — Software Engineer</title>
+  <title>Salman Kazi - Software Engineer</title>
   <meta name="description"
     content="Salman Shawkat Kazi — Software Engineer. PHP/Laravel, Java, Python, AI/ML, Docker, Azure. MSc CS at Nottingham Trent University." />
   <meta property="og:title" content="Salman Kazi — Software Engineer" />
   <meta property="og:description" content="Builds reliable, scalable software." />
   <meta property="og:type" content="website" />
   <meta name="robots" content="index,follow" />
+
+  <!-- Premium Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
     rel="stylesheet" />
+
   <style>
     *,
     *::before,
     *::after {
       box-sizing: border-box;
       margin: 0;
-      padding: 0
+      padding: 0;
     }
 
     :root {
-      /* Modern Dark Blue & Black Theme */
-      --bg: #050a14;
-      --bg2: #0b1324;
-      --bg3: #121d33;
-      --bg4: #1a2744;
+      /* Refined Ultra-Dark Modern Palette */
+      --bg: #030712;
+      --bg2: #0b1120;
+      --bg3: #111827;
+      --bg4: #1f2937;
       --line: rgba(255, 255, 255, 0.08);
-      --line2: rgba(255, 255, 255, 0.12);
-      --fg: #f1f5f9;
-      --fg2: #94a3b8;
-      --fg3: #64748b;
+      --line2: rgba(255, 255, 255, 0.15);
+      --fg: #f8fafc;
+      --fg2: #cbd5e1;
+      --fg3: #94a3b8;
 
-      /* Accent Colors (Cyan/Blue) */
+      /* Vibrant Accents */
       --accent: #3b82f6;
       --accent2: #60a5fa;
       --accent3: #93c5fd;
-      --accent-dim: rgba(59, 130, 246, 0.1);
-      --accent-line: rgba(59, 130, 246, 0.25);
+      --accent-dim: rgba(59, 130, 246, 0.15);
+      --accent-line: rgba(59, 130, 246, 0.3);
+      --accent-glow: rgba(59, 130, 246, 0.4);
 
       /* Typography */
-      --serif-display: 'Playfair Display', Georgia, serif;
-      --serif: 'Instrument Serif', Georgia, serif;
-      --mono: 'IBM Plex Mono', monospace;
-      --sans: 'IBM Plex Sans', system-ui, sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+      /* Faster Animations */
+      --spring: cubic-bezier(0.175, 0.885, 0.32, 1.05);
+      --smooth: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     html {
       scroll-behavior: smooth;
-      font-size: 16px
+      font-size: 16px;
+      background: var(--bg);
     }
 
     body {
@@ -63,63 +71,85 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* Cool blue ambient glow */
+    /* Ambient Breathing Background Glow */
     body::before {
       content: '';
       position: fixed;
-      inset: 0;
+      top: -20vh;
+      left: 10vw;
+      width: 80vw;
+      height: 60vh;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
-      background: radial-gradient(ellipse 55vw 55vh at 65% -5%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 35vw 35vh at 5% 90%, rgba(14, 165, 233, 0.08) 0%, transparent 65%);
+      animation: breathe 8s ease-in-out infinite alternate;
+      filter: blur(80px);
+    }
+
+    @keyframes breathe {
+      0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.1) translate(2vw, 2vh);
+        opacity: 1;
+      }
     }
 
     ::-webkit-scrollbar {
-      width: 3px
+      width: 6px;
     }
 
     ::-webkit-scrollbar-track {
-      background: transparent
+      background: var(--bg);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: var(--accent);
-      opacity: .3;
-      border-radius: 2px
+      background: var(--bg4);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--fg3);
     }
 
     .skip {
       position: absolute;
       left: 1rem;
       top: -60px;
-      padding: .4rem .9rem;
+      padding: 0.6rem 1.2rem;
       background: var(--accent);
-      color: var(--bg);
-      font-size: .8rem;
-      border-radius: 3px;
+      color: #fff;
+      font-size: 0.85rem;
+      border-radius: 8px;
       z-index: 9999;
-      font-family: var(--mono)
+      font-family: var(--mono);
+      transition: top 0.3s var(--smooth);
     }
 
     .skip:focus {
-      top: 1rem
+      top: 1rem;
     }
 
-    /* ── PROGRESS ── */
+    /* ── PROGRESS BAR ── */
     #bar {
       position: fixed;
       top: 0;
       left: 0;
-      height: 1px;
-      background: var(--accent);
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       width: 0;
       z-index: 900;
-      transition: width .06s linear
+      transition: width 0.1s ease-out;
+      box-shadow: 0 0 10px var(--accent-glow);
     }
 
-    /* ── NAV ── */
+    /* ── NAVIGATION ── */
     nav {
       position: fixed;
       top: 0;
@@ -129,61 +159,87 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 3rem;
-      height: 52px;
-      background: rgba(5, 10, 20, 0.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      padding: 0 4rem;
+      height: 70px;
+      background: rgba(3, 7, 18, 0.7);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--line);
+      transition: all 0.3s ease;
     }
 
     .n-logo {
       font-family: var(--mono);
-      font-size: .8rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--fg);
       text-decoration: none;
-      letter-spacing: -.01em;
+      letter-spacing: -0.02em;
     }
 
     .n-logo b {
       color: var(--accent);
-      font-weight: 500
+      font-weight: 600;
     }
 
     .n-links {
       display: flex;
-      gap: 2.5rem;
-      list-style: none
+      gap: 3rem;
+      list-style: none;
     }
 
     .n-links a {
       font-family: var(--sans);
-      font-size: .78rem;
+      font-size: 0.85rem;
       font-weight: 400;
       color: var(--fg2);
       text-decoration: none;
-      letter-spacing: .02em;
-      transition: color .18s;
+      transition: color 0.2s ease;
+      position: relative;
     }
 
     .n-links a:hover,
     .n-links a.active {
-      color: var(--fg)
+      color: var(--fg);
+    }
+
+    .n-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s var(--smooth);
+    }
+
+    .n-links a:hover::after,
+    .n-links a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .n-pill {
       display: flex;
       align-items: center;
-      gap: .45rem;
+      gap: 0.6rem;
       font-family: var(--sans);
-      font-size: .73rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: var(--fg);
-      background: var(--bg3);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--line2);
       border-radius: 40px;
-      padding: .28rem .85rem;
+      padding: 0.4rem 1rem;
+      transition: all 0.2s var(--smooth);
+    }
+
+    .n-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     .n-pill .g {
@@ -191,159 +247,169 @@
       height: 6px;
       border-radius: 50%;
       background: #4ade80;
-      animation: gp 2.2s ease-in-out infinite
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+      animation: pulse 2s infinite;
     }
 
-    @keyframes gp {
+    @keyframes pulse {
 
       0%,
       100% {
-        box-shadow: 0 0 0 0 rgba(74, 222, 128, .45)
+        transform: scale(1);
+        opacity: 1;
       }
 
-      55% {
-        box-shadow: 0 0 0 5px transparent
+      50% {
+        transform: scale(1.5);
+        opacity: 0.5;
       }
     }
 
     .ham {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
       background: none;
       border: none;
       cursor: pointer;
-      padding: .3rem .2rem
+      padding: 0.5rem;
+      z-index: 600;
     }
 
     .ham span {
       display: block;
-      width: 19px;
-      height: 1.5px;
-      background: var(--fg2);
+      width: 24px;
+      height: 2px;
+      background: var(--fg);
       border-radius: 2px;
-      transition: all .28s
+      transition: all 0.3s var(--smooth);
     }
 
     .ham.open span:nth-child(1) {
-      transform: translateY(6.5px) rotate(45deg)
+      transform: translateY(8px) rotate(45deg);
     }
 
     .ham.open span:nth-child(2) {
       opacity: 0;
-      transform: scaleX(0)
+      transform: scaleX(0);
     }
 
     .ham.open span:nth-child(3) {
-      transform: translateY(-6.5px) rotate(-45deg)
-    }
-
-    @media(max-width:760px) {
-      nav {
-        padding: 0 1.25rem
-      }
-
-      .n-links,
-      .n-pill {
-        display: none
-      }
-
-      .ham {
-        display: flex
-      }
+      transform: translateY(-8px) rotate(-45deg);
     }
 
     .mob {
       display: none;
       position: fixed;
-      top: 52px;
+      top: 0;
       left: 0;
       right: 0;
+      bottom: 0;
       z-index: 499;
-      background: rgba(5, 10, 20, 0.97);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
+      background: rgba(3, 7, 18, 0.98);
+      backdrop-filter: blur(20px);
       flex-direction: column;
-      padding: 1rem 1.25rem 1.5rem;
-      gap: 0;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s var(--smooth);
     }
 
     .mob.show {
-      display: flex
+      display: flex;
+      opacity: 1;
     }
 
     .mob a {
       color: var(--fg2);
       text-decoration: none;
-      font-size: .9rem;
-      padding: .75rem 0;
-      border-bottom: 1px solid var(--line);
-      transition: color .18s;
-    }
-
-    .mob a:last-child {
-      border-bottom: none
+      font-size: 1.5rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
     }
 
     .mob a:hover {
-      color: var(--fg)
+      color: var(--fg);
+    }
+
+    @media(max-width: 860px) {
+      nav {
+        padding: 0 2rem;
+      }
+
+      .n-links,
+      .n-pill {
+        display: none;
+      }
+
+      .ham {
+        display: flex;
+      }
+    }
+
+    @media(max-width: 480px) {
+      nav {
+        padding: 0 1.25rem;
+      }
     }
 
     /* ── LAYOUT ── */
     .w {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 3rem;
+      padding: 0 4rem;
       position: relative;
-      z-index: 1
+      z-index: 1;
     }
 
-    @media(max-width:640px) {
+    @media(max-width: 768px) {
       .w {
-        padding: 0 1.25rem
+        padding: 0 2rem;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .w {
+        padding: 0 1.25rem;
       }
     }
 
     .rule {
       height: 1px;
-      background: var(--line);
-      margin: 0 3rem
-    }
-
-    @media(max-width:640px) {
-      .rule {
-        margin: 0 1.25rem
-      }
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 0 auto;
+      max-width: 1240px;
     }
 
     /* ── SECTION LABEL ── */
     .sl {
       display: flex;
       align-items: center;
-      gap: .8rem;
-      margin-bottom: 3.5rem
+      gap: 1rem;
+      margin-bottom: 3.5rem;
     }
 
     .sl-n {
       font-family: var(--mono);
-      font-size: .72rem;
+      font-size: 0.85rem;
       color: var(--accent);
-      font-weight: 500
+      font-weight: 600;
     }
 
     .sl-dash {
-      width: 36px;
+      width: 48px;
       height: 1px;
-      background: var(--line2)
+      background: var(--line2);
     }
 
     .sl-t {
       font-family: var(--mono);
-      font-size: .65rem;
-      letter-spacing: .18em;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--fg3);
-      font-weight: 400
+      font-weight: 500;
     }
 
     /* ── HERO ── */
@@ -352,929 +418,936 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 130px 0 72px
+      padding: 150px 0 100px;
     }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: .55rem;
+      gap: 0.7rem;
       font-family: var(--mono);
-      font-size: .72rem;
+      font-size: 0.8rem;
       color: var(--fg2);
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--line);
-      border-radius: 3px;
-      padding: .3rem .75rem;
-      margin-bottom: 2.25rem;
+      border-radius: 6px;
+      padding: 0.4rem 1rem;
+      margin-bottom: 2.5rem;
+      backdrop-filter: blur(4px);
     }
 
     .hero-tag b {
       color: var(--accent);
-      font-weight: 400
+      font-weight: 600;
     }
 
+    /* Giving the text more room, shrinking terminal slightly */
     .h-grid {
       display: grid;
-      grid-template-columns: 1fr 430px;
-      gap: 5rem;
-      align-items: center
+      grid-template-columns: 1.5fr 380px;
+      gap: 4rem;
+      align-items: center;
     }
 
     h1 {
-      font-family: var(--serif-display);
-      font-size: clamp(3.2rem, 6vw, 5.8rem);
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+      /* Slightly smaller max to guarantee fit */
       line-height: 1.05;
-      letter-spacing: -.025em;
+      letter-spacing: -0.03em;
       font-weight: 700;
       color: var(--fg);
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.5rem;
     }
 
     h1 em {
       font-style: italic;
-      color: var(--accent);
-      font-weight: 700
+      color: transparent;
+      -webkit-text-stroke: 1px var(--accent);
+      background: linear-gradient(to right, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      /* Fix for clipped italic text */
+      padding-right: 0.2em;
+      margin-right: -0.2em;
     }
 
     .hero-p {
-      font-family: var(--sans);
-      font-size: .975rem;
+      font-size: 1.1rem;
       font-weight: 300;
       color: var(--fg2);
-      line-height: 1.85;
-      max-width: 500px;
-      margin-bottom: 2.25rem;
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
     }
 
     .hero-p strong {
       color: var(--fg);
-      font-weight: 500
+      font-weight: 500;
     }
 
     .btns {
       display: flex;
-      gap: .9rem;
-      flex-wrap: wrap
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .b-solid,
+    .b-outline-accent,
+    .b-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 0.75rem 1.6rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s var(--spring);
     }
 
     .b-solid {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      font-family: var(--sans);
-      font-size: .83rem;
-      font-weight: 500;
       background: var(--accent);
-      color: #ffffff;
-      border: none;
-      border-radius: 40px;
-      padding: .72rem 1.55rem;
-      text-decoration: none;
-      cursor: pointer;
-      letter-spacing: .01em;
-      transition: background .18s, transform .15s;
+      color: #fff;
+      border: 1px solid transparent;
+      box-shadow: 0 4px 14px 0 var(--accent-glow);
     }
 
     .b-solid:hover {
       background: var(--accent2);
-      transform: translateY(-1px)
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
     }
 
     .b-outline-accent {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      font-family: var(--sans);
-      font-size: .83rem;
-      font-weight: 500;
-      background: var(--accent-dim);
+      background: rgba(59, 130, 246, 0.05);
       color: var(--accent2);
       border: 1px solid var(--accent-line);
-      border-radius: 40px;
-      padding: .72rem 1.55rem;
-      text-decoration: none;
-      cursor: pointer;
-      letter-spacing: .01em;
-      transition: all .18s;
+      backdrop-filter: blur(10px);
     }
 
     .b-outline-accent:hover {
-      background: var(--accent);
-      color: #ffffff;
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
       border-color: var(--accent);
-      transform: translateY(-1px)
     }
 
     .b-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      font-family: var(--sans);
-      font-size: .83rem;
-      font-weight: 400;
       background: transparent;
       color: var(--fg);
       border: 1px solid var(--line2);
-      border-radius: 40px;
-      padding: .72rem 1.55rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: border-color .18s, transform .15s;
     }
 
     .b-ghost:hover {
-      border-color: var(--fg2);
-      transform: translateY(-1px)
+      background: rgba(255, 255, 255, 0.03);
+      border-color: var(--fg3);
+      transform: translateY(-2px);
     }
 
-    /* TERMINAL */
+    /* ── TERMINAL ── */
     .term {
-      background: var(--bg2);
+      background: rgba(11, 17, 32, 0.7);
       border: 1px solid var(--line2);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .03);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     }
 
     .tb {
       display: flex;
       align-items: center;
-      gap: .45rem;
-      padding: .7rem 1rem;
-      background: var(--bg3);
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
       border-bottom: 1px solid var(--line);
     }
 
     .td {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
     }
 
     .td.r {
-      background: #ff5f57
+      background: #ff5f56;
+      box-shadow: 0 0 8px rgba(255, 95, 86, 0.4);
     }
 
     .td.y {
-      background: #febc2e
+      background: #ffbd2e;
+      box-shadow: 0 0 8px rgba(255, 189, 46, 0.4);
     }
 
     .td.g {
-      background: #28c840
+      background: #27c93f;
+      box-shadow: 0 0 8px rgba(39, 201, 63, 0.4);
     }
 
     .tt {
       font-family: var(--mono);
-      font-size: .68rem;
+      font-size: 0.7rem;
       color: var(--fg3);
-      margin-left: .5rem;
-      letter-spacing: .01em
+      margin-left: 0.5rem;
+      flex: 1;
+      text-align: center;
+      padding-right: 48px;
+      /* offset dots */
     }
 
     .tbody {
-      padding: 1.4rem 1.5rem;
+      padding: 1.5rem;
       font-family: var(--mono);
-      font-size: .77rem;
-      line-height: 2
+      font-size: 0.8rem;
+      line-height: 2.2;
     }
 
     .t1 {
-      color: var(--fg3)
+      color: #c678dd;
     }
 
+    /* Purple keyword */
     .t2 {
-      color: var(--accent3)
+      color: #61afef;
     }
 
+    /* Blue function */
     .t3 {
-      color: #86efac
+      color: #e06c75;
     }
 
+    /* Red object key */
     .t4 {
-      color: var(--accent)
+      color: #98c379;
     }
 
+    /* Green string */
     .t5 {
-      color: var(--fg)
+      color: #e5c07b;
     }
 
-    .t6 {
-      color: #93c5fd
-    }
+    /* Yellow var */
 
     .cur {
       display: inline-block;
-      width: 2px;
-      height: .82em;
-      background: var(--accent2);
+      width: 8px;
+      height: 1.1em;
+      background: var(--fg);
       vertical-align: text-bottom;
-      animation: bl .9s step-end infinite;
-      margin-left: 2px
+      animation: blink 1s step-end infinite;
+      margin-left: 4px;
     }
 
-    @keyframes bl {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
+    @keyframes blink {
       50% {
-        opacity: 0
+        opacity: 0;
       }
     }
 
-    /* STATS */
+    /* ── STATS ── */
     .stats {
-      display: flex;
-      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
       border-top: 1px solid var(--line);
-      margin-top: 3.5rem;
-      padding-top: 3rem
-    }
-
-    .st {
-      flex: 1;
-      padding-right: 2.5rem;
-      position: relative
-    }
-
-    .st+.st {
-      padding-left: 2.5rem;
-      border-left: 1px solid var(--line)
+      margin-top: 5rem;
+      padding-top: 4rem;
     }
 
     .st-n {
-      font-family: var(--serif-display);
+      font-family: var(--serif);
       font-size: 2.8rem;
       font-weight: 700;
       color: var(--fg);
       line-height: 1;
-      letter-spacing: -.03em
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
     }
 
     .st-n sup {
       font-family: var(--sans);
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 1.2rem;
       color: var(--accent);
-      vertical-align: super;
-      margin-left: 1px
+      font-weight: 500;
     }
 
     .st-l {
-      font-family: var(--mono);
-      font-size: .6rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
+      font-family: var(--sans);
+      font-size: 0.85rem;
       color: var(--fg3);
-      margin-top: .4rem;
-      line-height: 1.5
+      line-height: 1.6;
     }
 
-    @media(max-width:900px) {
+    /* ── Responsive Hero & Stats ── */
+    @media(max-width: 1100px) {
       .h-grid {
         grid-template-columns: 1fr;
-        gap: 3rem
+        gap: 4rem;
+      }
+
+      .term {
+        max-width: 500px;
+        width: 100%;
+        margin: 0;
       }
     }
 
-    @media(max-width:580px) {
+    @media(max-width: 768px) {
+      #hero {
+        padding: 120px 0 80px;
+      }
+
       .stats {
-        flex-wrap: wrap;
-        gap: 2rem
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+    }
+
+    @media(max-width: 480px) {
+      h1 {
+        font-size: clamp(2.2rem, 8vw, 2.8rem);
+        margin-bottom: 1rem;
       }
 
-      .st+.st {
-        border-left: none;
-        padding-left: 0
+      .hero-p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
       }
 
-      .st {
-        padding-right: 0
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
       }
+
+      .st-n {
+        font-size: 2.5rem;
+      }
+
+      .b-solid,
+      .b-outline-accent,
+      .b-ghost {
+        width: 100%;
+      }
+
+      /* full width buttons on mobile */
     }
 
     /* ── ABOUT ── */
     #about {
-      padding: 96px 0
+      padding: 100px 0;
     }
 
     .ab-grid {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 7rem;
-      align-items: start
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
     }
 
     .ab-l h2 {
-      font-family: var(--serif-display);
-      font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
-      line-height: 1.18;
-      letter-spacing: -.025em;
+      line-height: 1.2;
       color: var(--fg);
-      font-style: italic;
     }
 
     .ab-r p {
-      font-family: var(--sans);
-      font-size: .9rem;
-      font-weight: 300;
+      font-size: 1rem;
       color: var(--fg2);
       line-height: 1.9;
-      margin-bottom: 1rem;
-    }
-
-    .ab-r p:last-child {
-      margin-bottom: 0
+      margin-bottom: 1.5rem;
     }
 
     .ab-r p strong {
       color: var(--fg);
-      font-weight: 500
+      font-weight: 500;
     }
 
-    @media(max-width:760px) {
+    @media(max-width: 900px) {
       .ab-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem
+        gap: 2.5rem;
       }
     }
 
     /* ── STACK ── */
     #stack {
-      padding: 80px 0
+      padding: 100px 0;
     }
 
     .sk-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
     }
 
     .sk-cell {
-      padding: 1.75rem 2rem;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      transition: background .2s;
+      background: var(--bg);
+      padding: 2rem;
+      transition: background 0.3s ease;
     }
 
     .sk-cell:hover {
-      background: var(--bg2)
-    }
-
-    .sk-cell:nth-child(3n) {
-      border-right: none
-    }
-
-    .sk-cell:nth-last-child(-n+3) {
-      border-bottom: none
+      background: rgba(255, 255, 255, 0.015);
     }
 
     .sk-cat {
       font-family: var(--mono);
-      font-size: .62rem;
-      font-weight: 500;
-      letter-spacing: .16em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
     .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: .35rem
+      gap: 0.5rem;
     }
 
     .ch {
-      font-family: var(--sans);
-      font-size: .73rem;
-      font-weight: 400;
-      padding: .28rem .65rem;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, .04);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
       color: var(--fg2);
-      border: 1px solid var(--line);
-      transition: all .15s;
-      cursor: default;
+      border: 1px solid var(--line2);
+      transition: all 0.2s var(--smooth);
     }
 
     .ch:hover {
       border-color: var(--accent-line);
-      color: var(--accent2);
-      background: var(--accent-dim)
+      color: var(--accent3);
+      background: var(--accent-dim);
+      transform: translateY(-2px);
     }
 
-    @media(max-width:760px) {
+    @media(max-width: 860px) {
       .sk-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .sk-cell:nth-child(3n) {
-        border-right: 1px solid var(--line)
-      }
-
-      .sk-cell:nth-child(2n) {
-        border-right: none
-      }
-
-      .sk-cell:nth-last-child(-n+3) {
-        border-bottom: 1px solid var(--line)
-      }
-
-      .sk-cell:nth-last-child(-n+2) {
-        border-bottom: none
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media(max-width:460px) {
+    @media(max-width: 540px) {
       .sk-grid {
-        grid-template-columns: 1fr
-      }
-
-      .sk-cell {
-        border-right: none !important
-      }
-
-      .sk-cell:last-child {
-        border-bottom: none
-      }
-
-      .sk-cell:nth-last-child(-n+2) {
-        border-bottom: 1px solid var(--line)
+        grid-template-columns: 1fr;
       }
     }
 
     /* ── WORK ── */
     #work {
-      padding: 80px 0
+      padding: 100px 0;
     }
 
     .wk-hd {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 2.5rem
+      margin-bottom: 3rem;
     }
 
     .wk-hd .sl {
-      margin-bottom: 0
+      margin-bottom: 0;
     }
 
     .gh-a {
       font-family: var(--mono);
-      font-size: .72rem;
+      font-size: 0.85rem;
       color: var(--fg2);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: .35rem;
-      transition: color .18s;
+      gap: 0.5rem;
+      transition: color 0.2s;
     }
 
     .gh-a:hover {
-      color: var(--fg)
+      color: var(--accent2);
     }
 
     .pg {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--line);
-      gap: 1px;
+      gap: 1.5rem;
     }
 
     .pc {
-      background: var(--bg);
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--line2);
+      border-radius: 16px;
       padding: 2rem;
       display: flex;
       flex-direction: column;
-      transition: background .22s;
+      transition: all 0.3s var(--smooth);
       position: relative;
+      overflow: hidden;
+    }
+
+    .pc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.04), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
     }
 
     .pc:hover {
-      background: var(--bg2)
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    .pc:hover::before {
+      opacity: 1;
     }
 
     .pc-top {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: .9rem
+      margin-bottom: 1.2rem;
     }
 
     .pc-meta {
       font-family: var(--mono);
-      font-size: .67rem;
+      font-size: 0.8rem;
       color: var(--fg3);
-      letter-spacing: .02em;
-      line-height: 1.4
     }
 
     .pc-meta span {
-      color: var(--accent)
+      color: var(--accent);
+      font-weight: 600;
     }
 
     .pc-ext {
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
-      border: 1px solid var(--line);
-      border-radius: 3px;
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--line2);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--fg3);
+      color: var(--fg2);
       text-decoration: none;
-      font-size: .8rem;
-      transition: all .18s;
+      transition: all 0.2s var(--smooth);
     }
 
     .pc-ext:hover {
-      border-color: var(--accent-line);
-      color: var(--accent)
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.05) rotate(5deg);
     }
 
     .pc-title {
-      font-family: var(--serif-display);
-      font-size: 1.35rem;
+      font-family: var(--serif);
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--fg);
-      line-height: 1.22;
-      margin-bottom: .65rem;
-      transition: color .18s;
-      letter-spacing: -.01em;
-    }
-
-    .pc:hover .pc-title {
-      color: var(--accent2)
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
     }
 
     .pc-desc {
-      font-family: var(--sans);
-      font-size: .82rem;
-      font-weight: 300;
+      font-size: 0.9rem;
       color: var(--fg2);
-      line-height: 1.75;
+      line-height: 1.7;
       flex: 1;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.5rem;
     }
 
     .pc-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: .3rem;
-      margin-bottom: 1.1rem
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
     }
 
     .pt {
       font-family: var(--mono);
-      font-size: .67rem;
-      padding: .22rem .55rem;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, .04);
-      color: var(--fg3);
-      border: 1px solid var(--line);
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--fg2);
     }
 
     .pc-foot {
       font-family: var(--mono);
-      font-size: .68rem;
-      color: var(--accent);
+      font-size: 0.75rem;
+      color: var(--accent2);
       border-top: 1px solid var(--line);
-      padding-top: .8rem;
+      padding-top: 1.2rem;
       margin-top: auto;
       display: flex;
       align-items: center;
-      gap: .35rem;
+      gap: 0.5rem;
     }
 
     .pc-foot::before {
       content: '↳';
       color: var(--accent);
-      font-size: .8rem
+      font-weight: 600;
     }
 
-    @media(max-width:620px) {
+    @media(max-width: 860px) {
       .pg {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .pc {
+        padding: 1.5rem;
       }
     }
 
     /* ── EDUCATION ── */
     #education {
-      padding: 96px 0
+      padding: 100px 0;
     }
 
     .ed-grid {
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 6rem;
-      align-items: start
+      grid-template-columns: 1.2fr 350px;
+      gap: 4rem;
     }
 
     .ed-tl {
       display: flex;
-      flex-direction: column
+      flex-direction: column;
     }
 
     .ed-item {
       display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 2rem;
-      padding: 2.25rem 0;
+      grid-template-columns: 100px 1fr;
+      gap: 1.5rem;
+      padding: 2.5rem 0;
       border-bottom: 1px solid var(--line);
     }
 
     .ed-item:first-child {
-      padding-top: 0
+      padding-top: 0;
     }
 
     .ed-item:last-child {
       border-bottom: none;
-      padding-bottom: 0
+      padding-bottom: 0;
     }
 
     .ed-yr {
       font-family: var(--mono);
-      font-size: .67rem;
+      font-size: 0.85rem;
       color: var(--accent);
-      letter-spacing: .02em;
-      padding-top: .3rem;
-      line-height: 1.5;
+      font-weight: 500;
     }
 
     .ed-deg {
-      font-family: var(--serif-display);
-      font-size: 1.55rem;
+      font-family: var(--serif);
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--fg);
-      margin-bottom: .3rem;
-      line-height: 1.2;
-      letter-spacing: -.015em;
+      margin-bottom: 0.4rem;
     }
 
     .ed-uni {
-      font-family: var(--sans);
-      font-size: .83rem;
+      font-size: 0.95rem;
       font-weight: 500;
       color: var(--fg2);
-      margin-bottom: .55rem;
+      margin-bottom: 0.8rem;
     }
 
     .ed-mods {
-      font-family: var(--sans);
-      font-size: .8rem;
-      font-weight: 300;
+      font-size: 0.9rem;
       color: var(--fg3);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     .cert-box {
-      background: var(--bg2);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 1.75rem;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--line2);
+      border-radius: 12px;
+      padding: 2rem;
+      height: fit-content;
     }
 
     .cert-hd {
       font-family: var(--mono);
-      font-size: .62rem;
-      letter-spacing: .16em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .cert-item {
       display: flex;
-      gap: .6rem;
-      padding: .65rem 0;
+      gap: 0.8rem;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--line);
-      font-family: var(--sans);
+      align-items: flex-start;
     }
 
     .cert-item:last-child {
       border-bottom: none;
-      padding-bottom: 0
+      padding-bottom: 0;
     }
 
     .cert-item::before {
       content: '→';
       color: var(--accent);
-      font-size: .8rem;
-      flex-shrink: 0;
-      margin-top: .05rem
+      font-family: var(--mono);
     }
 
     .cert-name {
-      font-size: .8rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--fg);
+      margin-bottom: 0.2rem;
       display: block;
-      margin-bottom: .1rem
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cert-name:hover {
+      color: var(--accent2);
     }
 
     .cert-org {
-      font-size: .73rem;
-      font-weight: 300;
-      color: var(--fg3)
+      font-size: 0.8rem;
+      color: var(--fg3);
     }
 
-    @media(max-width:760px) {
+    @media(max-width: 900px) {
       .ed-grid {
         grid-template-columns: 1fr;
-        gap: 3rem
+        gap: 3rem;
       }
+    }
 
+    @media(max-width: 480px) {
       .ed-item {
         grid-template-columns: 1fr;
-        gap: .35rem
+        gap: 0.5rem;
+        padding: 2rem 0;
+      }
+
+      .ed-yr {
+        margin-bottom: 0.2rem;
+      }
+
+      .cert-box {
+        padding: 1.5rem;
       }
     }
 
     /* ── CONTACT ── */
     #contact {
-      padding: 96px 0
+      padding: 100px 0 150px;
     }
 
     .ct-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 7rem;
-      align-items: start
+      gap: 4rem;
+      align-items: start;
     }
 
     .ct-l h2 {
-      font-family: var(--serif-display);
-      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 700;
       line-height: 1.1;
-      letter-spacing: -.03em;
       color: var(--fg);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.2rem;
     }
 
     .ct-l h2 em {
-      color: var(--accent);
-      font-style: italic
+      font-style: italic;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--accent);
+      background: linear-gradient(to right, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      padding-right: 0.15em;
     }
 
     .ct-l p {
-      font-family: var(--sans);
-      font-size: .87rem;
-      font-weight: 300;
+      font-size: 1rem;
       color: var(--fg2);
-      line-height: 1.85;
+      line-height: 1.9;
       margin-bottom: 2rem;
-      max-width: 400px;
+      max-width: 440px;
     }
 
     .ct-table {
-      width: 100%
+      width: 100%;
     }
 
     .ct-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: .82rem 0;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--line);
-      gap: 1rem;
     }
 
     .ct-row:first-child {
-      border-top: 1px solid var(--line)
+      border-top: 1px solid var(--line);
     }
 
     .ct-k {
       display: flex;
       align-items: center;
-      gap: .55rem;
+      gap: 0.8rem;
       font-family: var(--mono);
-      font-size: .7rem;
+      font-size: 0.85rem;
       color: var(--fg3);
-      flex-shrink: 0;
     }
 
     .ct-k svg {
-      width: 13px;
-      height: 13px
+      width: 16px;
+      height: 16px;
+      stroke: var(--accent);
     }
 
     .ct-v {
-      font-family: var(--sans);
-      font-size: .8rem;
-      font-weight: 400;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--fg);
       text-decoration: none;
-      text-align: right;
-      transition: color .18s;
+      transition: color 0.2s;
       word-break: break-all;
+      text-align: right;
     }
 
     .ct-v:hover {
-      color: var(--accent)
+      color: var(--accent2);
     }
 
-    @media(max-width:760px) {
+    @media(max-width: 860px) {
       .ct-grid {
         grid-template-columns: 1fr;
-        gap: 3rem
+        gap: 3rem;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .ct-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
+      .ct-v {
+        text-align: left;
       }
     }
 
     /* ── FOOTER ── */
     footer {
-      padding: 2rem 3rem;
+      padding: 2.5rem 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
+      border-top: 1px solid var(--line);
+      background: rgba(3, 7, 18, 0.5);
     }
 
     .ft-l {
-      font-family: var(--sans);
-      font-size: .72rem;
+      font-size: 0.85rem;
       color: var(--fg3);
-      font-weight: 300
     }
 
     .ft-l span {
-      color: var(--accent)
+      color: var(--accent);
     }
 
     .ft-r {
       font-family: var(--mono);
-      font-size: .68rem;
-      color: var(--fg3)
+      font-size: 0.8rem;
+      color: var(--fg3);
     }
 
-    @media(max-width:640px) {
+    @media(max-width: 768px) {
       footer {
-        padding: 2rem 1.25rem
+        padding: 2.5rem 2rem;
+        flex-direction: column;
+        text-align: center;
       }
     }
 
-    /* ── REVEAL ANIMATIONS (Upgraded to smooth scale & fade) ── */
+    @media(max-width: 480px) {
+      footer {
+        padding: 2rem 1.25rem;
+      }
+    }
+
+    /* ── INSTANT & FASTER REVEAL ANIMATIONS ── */
+    /* Transition times reduced, translateY distance reduced to make them feel instantly snappy */
     .rv {
       opacity: 0;
-      transform: translateY(35px) scale(0.96);
-      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       will-change: opacity, transform;
     }
 
     .rv.in {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
+    /* Tiny staggers so things don't wait for each other */
     .rv-s.rv:nth-child(1) {
-      transition-delay: .04s
+      transition-delay: 0.0s;
     }
 
     .rv-s.rv:nth-child(2) {
-      transition-delay: .11s
+      transition-delay: 0.05s;
     }
 
     .rv-s.rv:nth-child(3) {
-      transition-delay: .18s
+      transition-delay: 0.1s;
     }
 
     .rv-s.rv:nth-child(4) {
-      transition-delay: .25s
+      transition-delay: 0.15s;
     }
 
     .rv-s.rv:nth-child(5) {
-      transition-delay: .32s
+      transition-delay: 0.2s;
     }
 
     .rv-s.rv:nth-child(6) {
-      transition-delay: .39s
+      transition-delay: 0.25s;
     }
 
     @media(prefers-reduced-motion:reduce) {
       .rv {
         opacity: 1;
         transform: none;
-        transition: none
+        transition: none;
       }
 
       * {
-        animation-duration: .01ms !important
+        animation-duration: 0.01ms !important;
       }
-    }
-
-    .cert-name:hover {
-      color: var(--accent);
     }
   </style>
 </head>
@@ -1315,7 +1388,9 @@
         <div class="hero-tag rv"><b>#</b> MSc Computer Science · Nottingham Trent</div>
         <div class="h-grid">
           <div class="rv">
-            <h1>Salman <em>Kazi</em><br>builds reliable,<br>scalable software.</h1>
+            <!-- Used an inline span with nowrap to GUARANTEE it stays on one line -->
+            <h1><span style="white-space: nowrap;">Salman <em>Kazi</em></span><br>builds reliable,<br>scalable software.
+            </h1>
             <p class="hero-p">
               Software engineer focusing on <strong>full-stack web development</strong>, <strong>distributed
                 systems</strong>, and <strong>artificial intelligence</strong>.
@@ -1338,34 +1413,37 @@
             <div class="tbody" aria-hidden="true">
               <div><span class="t1">const</span> <span class="t5">engineer</span> = {</div>
               <div>&nbsp;&nbsp;<span class="t3">name</span>: <span class="t4">"Salman Kazi"</span>,</div>
-              <div>&nbsp;&nbsp;<span class="t3">role</span>: <span class="t4">"Software Engineer"</span>,</div>
+              <div>&nbsp;&nbsp;<span class="t3">role</span>: <span class="t4">"Software Engineer / Full-Stack
+                  Developer"</span>,</div>
               <div>&nbsp;&nbsp;<span class="t3">based</span>: <span class="t4">"Nottingham, UK"</span>,</div>
               <div>&nbsp;&nbsp;<span class="t3">languages</span>: [<span class="t4">"PHP"</span>, <span
-                  class="t4">"Java"</span>, <span class="t4">"Python"</span>],</div>
-              <div>&nbsp;&nbsp;<span class="t3">focus</span>: <span class="t4">"web + distributed + AI"</span>,</div>
-              <div>&nbsp;&nbsp;<span class="t3">status</span>: <span class="t4">"open to work"</span> </div>
+                  class="t4">"Java"</span>, <span class="t4">"Python"</span>, <span class="t4">"C++"</span>],</div>
+              <div>&nbsp;&nbsp;<span class="t3">focus</span>: <span class="t4">"Web Architectures + Distributed Systems
+                  + AI"</span>,</div>
+              <div>&nbsp;&nbsp;<span class="t3">status</span>: <span class="t4">"Open to graduate & junior roles"</span>
+              </div>
               <div>};</div>
-              <div style="margin-top:.6rem"><span class="t4">$</span> <span class="t6">engineer</span>.<span
-                  class="t1">ship</span>()<span class="cur"></span></div>
+              <div style="margin-top:1rem"><span class="t2">$</span> <span class="t5">engineer</span>.<span
+                  class="t2">ship</span>()<span class="cur"></span></div>
             </div>
           </div>
         </div>
 
         <!-- STATS -->
         <div class="stats">
-          <div class="st rv">
+          <div class="st rv rv-s">
             <div class="st-n">9.49</div>
             <div class="st-l">BSc CGPA / 10</div>
           </div>
-          <div class="st rv">
+          <div class="st rv rv-s">
             <div class="st-n">PHP</div>
             <div class="st-l">Laravel &<br>Livewire</div>
           </div>
-          <div class="st rv">
+          <div class="st rv rv-s">
             <div class="st-n">Java</div>
-            <div class="st-l">REST APIs &<br>Apache Tomcat</div>
+            <div class="st-l">REST APIs &<br>Distributed Systems</div>
           </div>
-          <div class="st rv">
+          <div class="st rv rv-s">
             <div class="st-n">Python</div>
             <div class="st-l">Applied AI &<br>Machine Learning</div>
           </div>
@@ -1383,7 +1461,7 @@
         </div>
         <div class="ab-grid">
           <div class="ab-l rv">
-            <h2>A Software Engineer focused on clean architecture and simple solutions.</h2>
+            <h2>A Software Engineer focused on clean architecture and scalable solutions.</h2>
           </div>
           <div class="ab-r rv">
             <p>I am a Computer Science graduate. I am currently completing my MSc in Computer Science at Nottingham
@@ -1481,114 +1559,151 @@
           <a href="https://github.com/salman089" target="_blank" rel="noopener" class="gh-a"
             aria-label="All projects on GitHub">All on GitHub ↗</a>
         </div>
+
         <div class="pg">
 
-          <div class="pc rv rv-s">
+          <!-- PROJECT 1: SaaS AI Inventory -->
+          <div class="pc rv">
             <div class="pc-top">
-              <span class="pc-meta"><span>01</span> · Distributed SOA System</span>
+              <span class="pc-meta"><span>01</span> · SaaS Web Application</span>
               <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
                 aria-label="View on GitHub">↗</a>
             </div>
-            <div class="pc-title">Student Event Booking Platform</div>
-            <p class="pc-desc">A Java 17 REST API built on Apache Tomcat, separated from a Laravel and Livewire frontend
-              using a Service-Oriented Architecture (SOA). I integrated multiple live maps and weather APIs, fixed slow
-              database queries, and used Docker to deploy the system to a live Azure VM. Successfully stress-tested to
-              handle 1,000 users with zero errors.</p>
+            <div class="pc-title">AI Inventory Forecasting System</div>
+            <p class="pc-desc">Building a web platform that uses AI to predict inventory needs. It uses a clean,
+              two-part Laravel and Livewire structure to keep the code organized. Includes secure logins, role-based
+              access, and a multi-tenant database design.</p>
             <div class="pc-tags">
-              <span class="pt">Java 17</span><span class="pt">Laravel</span><span class="pt">Livewire</span>
-              <span class="pt">MongoDB Atlas</span><span class="pt">Docker</span><span class="pt">Azure</span><span
-                class="pt">JMeter</span><span class="pt">Tailwind CSS</span>
+              <span class="pt">Laravel</span><span class="pt">Livewire</span><span class="pt">MySQL</span>
+              <span class="pt">Python</span><span class="pt">AI / ML</span><span class="pt">Tailwind CSS</span>
             </div>
-            <div class="pc-foot">1,000 users · 0.00% error rate · live Azure deployment</div>
+            <div class="pc-foot">Ongoing · Multi-tenant · Strict access control</div>
           </div>
 
-          <div class="pc rv rv-s">
+          <!-- PROJECT 2: CodeNavigator -->
+          <div class="pc rv">
             <div class="pc-top">
-              <span class="pc-meta"><span>02</span> · Applied Machine Learning</span>
+              <span class="pc-meta"><span>02</span> · AI Search Engine</span>
               <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
                 aria-label="View on GitHub">↗</a>
             </div>
-            <div class="pc-title">End-to-End Predictive AI App</div>
-            <p class="pc-desc">A complete Machine Learning project. I cleaned the raw data, compared different AI models
-              (MLP, 1D-CNN, and Gradient Boosted Trees), and used K-Means clustering for extra insights. The final model
-              serves real-time predictions via a FastAPI backend, which is displayed on a modern Next.js website.</p>
+            <div class="pc-title">CodeNavigator AI</div>
+            <p class="pc-desc">Created a smart search tool that helps developer teams find coding rules quickly. It
+              replaces old PDF manuals with an AI search engine that answers technical questions in plain English using
+              Google's Gemini AI and smart tagging.</p>
             <div class="pc-tags">
-              <span class="pt">Python</span><span class="pt">Keras</span><span class="pt">TensorFlow</span>
-              <span class="pt">Scikit-Learn</span><span class="pt">FastAPI</span><span class="pt">React</span><span
-                class="pt">Next.js</span>
+              <span class="pt">Google Gemini API</span><span class="pt">Python</span><span class="pt">Vector
+                Embeddings</span><span class="pt">LLMs</span>
             </div>
-            <div class="pc-foot">Supervised + unsupervised · leakage-free pipeline</div>
+            <div class="pc-foot">Natural language search · Automated AI tagging</div>
           </div>
 
-          <div class="pc rv rv-s">
+          <!-- PROJECT 3: AI Job Match Analyzer -->
+          <div class="pc rv">
             <div class="pc-top">
-              <span class="pc-meta"><span>03</span> · Native Android App</span>
+              <span class="pc-meta"><span>03</span> · AI Utility Tool</span>
               <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
                 aria-label="View on GitHub">↗</a>
             </div>
-            <div class="pc-title">Accommodation Maintenance System</div>
-            <p class="pc-desc">Replaced slow, paper-based forms with a real-time Android application. I built a custom
-              CameraX feature so tenants can easily take and upload photos of maintenance issues. Uses Firebase
-              Role-Based Access Control (RBAC) to ensure managers, tenants, and staff only see what they are supposed
-              to.</p>
+            <div class="pc-title">AI Job Match Analyzer</div>
+            <p class="pc-desc">Built a smart tool using Python and Google Gemini AI to help people apply for jobs. It
+              reads PDF resumes, compares them to job descriptions, finds missing skills, and gives simple, actionable
+              advice to improve the application.</p>
             <div class="pc-tags">
-              <span class="pt">Java</span><span class="pt">Android Studio</span><span class="pt">Firebase Auth</span>
-              <span class="pt">Firestore</span><span class="pt">CameraX</span><span class="pt">RBAC</span>
+              <span class="pt">Python</span><span class="pt">Google Gemini API</span><span class="pt">PDF
+                Processing</span><span class="pt">Prompt Engineering</span>
             </div>
-            <div class="pc-foot">3 role-based workflows · real-time listeners</div>
+            <div class="pc-foot">Automated resume matching · Custom AI advice</div>
           </div>
 
-          <div class="pc rv rv-s">
+          <!-- PROJECT 4: Enterprise API Gateway -->
+          <div class="pc rv">
             <div class="pc-top">
-              <span class="pc-meta"><span>04</span> · Desktop Application</span>
+              <span class="pc-meta"><span>04</span> · Backend Architecture</span>
               <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
                 aria-label="View on GitHub">↗</a>
             </div>
-            <div class="pc-title">Distributed Secure Cloud Storage</div>
-            <p class="pc-desc">A secure JavaFX desktop application that automatically encrypts files and splits them
-              across multiple isolated Docker containers to prevent data loss. Includes a secure SSH admin terminal and
-              automated JUnit testing pipelines to ensure no files are corrupted during transfer.</p>
+            <div class="pc-title">Enterprise API Gateway</div>
+            <p class="pc-desc">Built a secure gateway to manage and monitor traffic for web services. It includes custom
+              rate limits to stop spam and a live dashboard to watch traffic. It keeps the database fast by handling
+              security checks in the cache layer.</p>
             <div class="pc-tags">
-              <span class="pt">Java</span><span class="pt">JavaFX</span><span class="pt">Docker</span>
-              <span class="pt">JSch (SSH)</span><span class="pt">JUnit</span>
+              <span class="pt">Laravel</span><span class="pt">Livewire</span><span class="pt">API Gateway</span><span
+                class="pt">Caching</span>
             </div>
-            <div class="pc-foot">Encrypted · multi-node · automated integrity checks</div>
+            <div class="pc-foot">Live traffic monitoring · Spam protection</div>
           </div>
 
-          <div class="pc rv rv-s">
+          <!-- PROJECT 5: Native Android App -->
+          <div class="pc rv">
             <div class="pc-top">
-              <span class="pc-meta"><span>05</span> · Four Full-Stack Platforms</span>
+              <span class="pc-meta"><span>05</span> · Native Mobile App</span>
+              <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
+                aria-label="View on GitHub">↗</a>
+            </div>
+            <div class="pc-title">Housing Maintenance App</div>
+            <p class="pc-desc">Built an Android app to replace paper forms for housing maintenance. Added a custom
+              camera feature so tenants can easily take pictures of problems. Used Firebase to make sure tenants, staff,
+              and managers only see what they are allowed to see.</p>
+            <div class="pc-tags">
+              <span class="pt">Java</span><span class="pt">Android Studio</span><span class="pt">Firebase</span><span
+                class="pt">CameraX</span><span class="pt">RBAC</span>
+            </div>
+            <div class="pc-foot">Live updates · Custom camera · Secure access</div>
+          </div>
+
+          <!-- PROJECT 6: Distributed Secure Cloud Storage -->
+          <div class="pc rv">
+            <div class="pc-top">
+              <span class="pc-meta"><span>06</span> · Desktop Application</span>
+              <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
+                aria-label="View on GitHub">↗</a>
+            </div>
+            <div class="pc-title">Secure Cloud Storage System</div>
+            <p class="pc-desc">Made a secure Java app that encrypts files and splits them across different Docker
+              containers so no data gets lost. Added automated tests to make sure files never get corrupted. Achieved a
+              High Distinction grade for this project.</p>
+            <div class="pc-tags">
+              <span class="pt">Java</span><span class="pt">JavaFX</span><span class="pt">Docker</span><span
+                class="pt">SSH</span><span class="pt">JUnit</span>
+            </div>
+            <div class="pc-foot">High Distinction · Encrypted files · Automated safety tests</div>
+          </div>
+
+          <!-- PROJECT 7: Predictive AI App -->
+          <div class="pc rv">
+            <div class="pc-top">
+              <span class="pc-meta"><span>07</span> · Applied Machine Learning</span>
+              <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
+                aria-label="View on GitHub">↗</a>
+            </div>
+            <div class="pc-title">Predictive Machine Learning App</div>
+            <p class="pc-desc">Created a complete AI project. Cleaned the data, tested different AI models to find the
+              best one, and used grouping tools to find hidden patterns. The AI connects to a modern Next.js website
+              using a fast Python backend.</p>
+            <div class="pc-tags">
+              <span class="pt">Python</span><span class="pt">TensorFlow</span><span class="pt">FastAPI</span><span
+                class="pt">React</span><span class="pt">Next.js</span>
+            </div>
+            <div class="pc-foot">Clean data pipeline · Live predictions</div>
+          </div>
+
+          <!-- PROJECT 8: Business Automation Suite -->
+          <div class="pc rv">
+            <div class="pc-top">
+              <span class="pc-meta"><span>08</span> · Full-Stack Platforms</span>
               <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
                 aria-label="View on GitHub">↗</a>
             </div>
             <div class="pc-title">Business Automation Suite</div>
-            <p class="pc-desc">Designed four full-stack platforms using Laravel and Livewire to automate everyday
-              business tasks: Inventory, Support Tickets, Complaints, and Attendance Tracking. Features include
-              real-time user interfaces, detailed security access levels (RBAC), and automated PDF and email reports.
-            </p>
+            <p class="pc-desc">Built four complete web apps to automate business tasks like inventory, support tickets,
+              complaints, and class attendance. Used PHP and Laravel to create secure systems with different user access
+              levels and automated reports.</p>
             <div class="pc-tags">
-              <span class="pt">Laravel</span><span class="pt">Livewire</span><span class="pt">MySQL</span>
-              <span class="pt">Tailwind CSS</span><span class="pt">Alpine.js</span><span
-                class="pt">Bootstrap</span><span class="pt">RBAC</span>
+              <span class="pt">PHP</span><span class="pt">Laravel</span><span class="pt">Livewire</span><span
+                class="pt">MySQL</span><span class="pt">RBAC</span>
             </div>
-            <div class="pc-foot">4 production-style systems · automated reporting</div>
-          </div>
-
-          <div class="pc rv rv-s">
-            <div class="pc-top">
-              <span class="pc-meta"><span>06</span> · Advanced Software Engineering</span>
-              <a href="https://github.com/salman089" target="_blank" rel="noopener" class="pc-ext"
-                aria-label="View on GitHub">↗</a>
-            </div>
-            <div class="pc-title">CI/CD Pipeline &amp; Automated Testing</div>
-            <p class="pc-desc">Built professional automated testing and deployment pipelines using Jenkins and GitHub.
-              Used Docker to keep server environments exactly the same across development and production, ensuring that
-              no bad code ever reaches the live server without passing all JUnit tests first.</p>
-            <div class="pc-tags">
-              <span class="pt">Jenkins</span><span class="pt">GitHub</span><span class="pt">Docker</span>
-              <span class="pt">JUnit</span><span class="pt">CI/CD</span>
-            </div>
-            <div class="pc-foot">Build · test · deploy · quality gates on every commit</div>
+            <div class="pc-foot">4 complete systems · Automated PDF reports</div>
           </div>
 
         </div>
@@ -1632,7 +1747,7 @@
             <div class="cert-item">
               <div>
                 <a href="https://certificates.cs50.io/3d5b9916-edc5-4fec-a2f0-efce62addc4a.pdf?size=letter"
-                  target="_blank" rel="noopener" class="cert-name" style="text-decoration: none;">CS50: Introduction to
+                  target="_blank" rel="noopener" class="cert-name">CS50: Introduction to
                   Computer Science ↗</a>
                 <span class="cert-org">Harvard University</span>
               </div>
@@ -1641,7 +1756,7 @@
             <div class="cert-item">
               <div>
                 <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/JO6KWYIABQOY"
-                  target="_blank" rel="noopener" class="cert-name" style="text-decoration: none;">Web Applications for
+                  target="_blank" rel="noopener" class="cert-name">Web Applications for
                   Everybody ↗</a>
                 <span class="cert-org">University of Michigan</span>
               </div>
@@ -1650,7 +1765,7 @@
             <div class="cert-item">
               <div>
                 <a href="https://www.coursera.org/account/accomplishments/specialization/WEFK5JUR1KG9" target="_blank"
-                  rel="noopener" class="cert-name" style="text-decoration: none;">HTML, CSS &amp; JavaScript for Web
+                  rel="noopener" class="cert-name">HTML, CSS &amp; JavaScript for Web
                   Developers ↗</a>
                 <span class="cert-org">Johns Hopkins University</span>
               </div>
@@ -1674,7 +1789,7 @@
             <h2>Let's build great <em>software together.</em></h2>
             <p>I am currently looking for graduate Software Engineer, Full-Stack, or Junior Backend roles in the UK. I
               am eligible to work up to 20 hours a week during term time, and full-time during university holidays on a
-              Student Visa.</p>
+              Student Visa. Please reach out if you have a role available or just want to chat!</p>
             <a href="mailto:sskazi089@gmail.com" class="b-solid" style="width:fit-content">sskazi089@gmail.com ↗</a>
           </div>
           <div class="ct-r rv">
@@ -1745,13 +1860,13 @@
   </footer>
 
   <script>
-    // progress bar
+    // Progress bar
     const bar = document.getElementById('bar');
     window.addEventListener('scroll', () => {
       bar.style.width = (window.scrollY / (document.body.scrollHeight - innerHeight) * 100) + '%';
     }, { passive: true });
 
-    // mobile nav
+    // Mobile Navigation
     const ham = document.getElementById('ham');
     const mob = document.getElementById('mob');
     ham.addEventListener('click', () => {
@@ -1767,13 +1882,29 @@
       mob.setAttribute('aria-hidden', 'true');
     }));
 
-    // scroll reveal (Upgraded logic for better threshold detection)
+    // Mouse tracking for project card subtle glow effect
+    document.querySelectorAll('.pc').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // Reveal Animations - FIXED LOGIC
+    // rootMargin '200px 0px' forces the element to trigger 200px BEFORE it even enters the screen,
+    // so you never have to wait for it.
     const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 200px 0px' });
     document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-    // active nav link highlight
+    // Active nav link highlight
     const secs = document.querySelectorAll('section[id]');
     const nls = document.querySelectorAll('.n-links a');
     const ao = new IntersectionObserver(entries => {
@@ -1786,7 +1917,7 @@
       });
     }, { threshold: 0.45 });
     secs.forEach(s => ao.observe(s));
-  
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
